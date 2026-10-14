@@ -1,4 +1,3 @@
-
 {
   "geode": "5.11.1",
   "gd": {
@@ -6,9 +5,9 @@
   },
   "id": "dejwar387.ai-decorator",
   "name": "R387 AI Decorator",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "developer": "Dejwar387",
-  "description": "Prototype framework for prompt-driven Geometry Dash level decoration.",
+  "description": "Prompt-driven in-editor decoration patterns with preview, style presets, object limits, and batch removal. Offline pattern generator; no cloud AI required.",
   "repository": "https://github.com/dejwarredmun-svg/R387-AI-Decorator",
   "tags": [
     "editor",
