@@ -1,4 +1,3 @@
-
 name: Build R387 Geode Mod
 
 on:
@@ -9,7 +8,7 @@ jobs:
     runs-on: windows-latest
 
     steps:
-      - name: Download R387 source
+      - name: Checkout source
         uses: actions/checkout@v4
 
       - name: Build Geode mod
@@ -24,5 +23,5 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: R387-Geode
-          path: "*.geode"
+          path: "**/*.geode"
           if-no-files-found: error
