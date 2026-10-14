@@ -1,0 +1,16 @@
+{
+  "geode": "v4.0.0",
+  "gd": {
+    "win": "2.2074"
+  },
+  "id": "dejwar387.ai-decorator",
+  "name": "R387 AI Decorator",
+  "version": "0.1.0",
+  "developer": "Dejwar387",
+  "description": "Prototype framework for prompt-driven Geometry Dash level decoration.",
+  "repository": "https://github.com/dejwar387/r387-ai-decorator",
+  "tags": [
+    "editor",
+    "enhancement"
+  ]
+}
