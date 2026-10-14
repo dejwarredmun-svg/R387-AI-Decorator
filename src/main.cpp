@@ -285,8 +285,8 @@ protected:
 
     std::string promptText() const {
         if (!m_promptInput) return {};
-        const char* raw = m_promptInput->getString();
-        return raw ? std::string(raw) : std::string();
+        const auto raw = m_promptInput->getString();
+        return std::string(raw.c_str());
     }
 
 public:
@@ -365,16 +365,18 @@ public:
         CCPoint anchor = {300.f, 150.f};
         if (m_level->m_editorUI && m_level->m_editorUI->m_selectedObject) {
             const auto selectedPosition = m_level->m_editorUI->m_selectedObject->getPosition();
-            anchor = {selectedPosition.x + 180.f, selectedPosition.y + 30.f};
+            anchor.x = selectedPosition.x + 180.f;
+            anchor.y = selectedPosition.y + 30.f;
         }
 
         m_lastBatch.clear();
         int added = 0;
         for (const auto& offset : plan) {
-            auto object = GameObject::createWithKey(1);
+            const auto position = ccp(anchor.x + offset.x, anchor.y + offset.y);
+            // Use the editor's own creation routine so objects are registered
+            // in the level and participate in the editor's normal undo system.
+            auto object = m_level->createObject(1, position, false);
             if (!object) continue;
-            object->setPosition({anchor.x + offset.x, anchor.y + offset.y});
-            m_level->addObject(object);
             m_level->updateObjectSection(object);
             m_lastBatch.push_back(object);
             ++added;
