@@ -11,17 +11,17 @@ jobs:
       - name: Checkout source
         uses: actions/checkout@v4
 
-      - name: Build Geode mod
+      - name: Build R387 Geode Mod
+        id: geode-build
         uses: geode-sdk/build-geode-mod@main
         with:
           sdk: latest
           cli: latest
           build-config: Release
-          target: Win64
 
       - name: Upload Geode file
         uses: actions/upload-artifact@v4
         with:
           name: R387-Geode
-          path: "**/*.geode"
+          path: ${{ steps.geode-build.outputs.build-output }}/*.geode
           if-no-files-found: error
